@@ -52,10 +52,10 @@ const Patients = () => {
         }
     };
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = event.target;
-        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-    };
+    // const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //     const { name, value } = event.target;
+    //     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    // };
 
     const openAddModal = () => setIsAddModalOpen(true);
     const closeAddModal = () => setIsAddModalOpen(false);

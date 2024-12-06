@@ -11,7 +11,6 @@ const api = axios.create({
     baseURL: apiUrl,
 });
 
-
 export const getPatients = async (): Promise<Patient[]> => {
     try {
         const response = await api.get('/patients/');
@@ -30,12 +29,13 @@ export const addPatient = async (patient: Patient): Promise<Patient> => {
             age: patient.age.toString(),
             gender: patient.gender,
             address: patient.address,
-            phoneNumber: patient.phoneNumber,
+            phone_number: patient.phoneNumber,git
         };
 
         const params = new URLSearchParams(stringifiedPatient);
         const response = await api.post(`/patients/?${params.toString()}`);
-        if (response.status === 201) {
+
+        if (response.status === 200 || response.status === 201) {
             return response.data;
         } else {
             throw new Error(`Неожиданный код состояния: ${response.status}`);
@@ -49,6 +49,7 @@ export const addPatient = async (patient: Patient): Promise<Patient> => {
 export const deletePatient = async (patientId: number): Promise<void> => {
     try {
         const response = await api.delete(`/patients/${patientId}`);
+
         if (response.status < 200 || response.status >= 300) {
             throw new Error(`Ошибка удаления пациента: ${response.status} ${response.statusText}`);
         }
@@ -58,6 +59,7 @@ export const deletePatient = async (patientId: number): Promise<void> => {
     }
 };
 
+// Извлечение сообщения об ошибке
 const extractErrorMessage = (error: any): string => {
     if (axios.isAxiosError(error) && error.response && error.response.data) {
         const apiError = error.response.data as ApiError;
@@ -66,4 +68,3 @@ const extractErrorMessage = (error: any): string => {
         return error.message;
     }
 };
-
