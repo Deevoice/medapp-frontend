@@ -24,8 +24,8 @@ export const getAppointments = async (): Promise<Appointment[]> => {
 export const addAppointment = async (appointment: Appointment): Promise<Appointment> => {
     try {
         const stringifiedAppointment: Record<string, string> = {
-            patient_id: appointment.patientId.toString(), // исправлено на patient_id
-            doctor_id: appointment.doctorId.toString(),   // исправлено на doctor_id
+            patient_id: appointment.patient_id.toString(), // исправлено на patient_id
+            doctor_id: appointment.doctor_id.toString(),   // исправлено на doctor_id
             date: appointment.date,
             time: appointment.time,
         };

@@ -1,8 +1,8 @@
 export interface Prescription {
     id: number;
-    patientId: number;
-    doctorId: number;
-    medications: string;
+    patient_id: number;
+    doctor_id: number;
+    medicine: string;
     date: string;
     dose?: string;
     instructions?: string;

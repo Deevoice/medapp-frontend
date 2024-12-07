@@ -9,9 +9,9 @@ interface PrescriptionFormProps {
 const PrescriptionForm: React.FC<PrescriptionFormProps> = ({ onAdd, onClose }) => {
     const [formData, setFormData] = useState<Prescription>({
         id: 0,
-        patientId: 0,
-        doctorId: 0,
-        medications: '',
+        patient_id: 0,
+        doctor_id: 0,
+        medicine: '',
         date: '',
     });
 
@@ -23,7 +23,7 @@ const PrescriptionForm: React.FC<PrescriptionFormProps> = ({ onAdd, onClose }) =
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         onAdd(formData);
-        setFormData({ id: 0, patientId: 0, doctorId: 0, medications: '', date: '' });
+        setFormData({ id: 0, patient_id: 0, doctor_id: 0, medicine: '', date: '' });
         onClose();
     };
 
@@ -32,7 +32,7 @@ const PrescriptionForm: React.FC<PrescriptionFormProps> = ({ onAdd, onClose }) =
             <input
                 type="number"
                 name="patientId"
-                value={formData.patientId}
+                value={formData.patient_id}
 
                 onChange={handleInputChange}
                 placeholder="ID пациента"
@@ -41,14 +41,14 @@ const PrescriptionForm: React.FC<PrescriptionFormProps> = ({ onAdd, onClose }) =
             <input
                 type="number"
                 name="doctorId"
-                value={formData.doctorId}
+                value={formData.doctor_id}
                 onChange={handleInputChange}
                 placeholder="ID доктора"
                 required
             />
             <textarea
                 name="medications"
-                value={formData.medications}
+                value={formData.medicine}
                 onChange={handleInputChange}
                 placeholder="Медикаменты"
                 required

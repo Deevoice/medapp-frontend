@@ -25,9 +25,9 @@ export const getPrescriptions = async (): Promise<Prescription[]> => {
 export const addPrescription = async (prescription: Prescription): Promise<Prescription> => {
     try {
         const params = new URLSearchParams({
-            patient_id: prescription.patientId.toString(),
-            doctor_id: prescription.doctorId.toString(),
-            medicine: prescription.medications,
+            patient_id: prescription.patient_id.toString(),
+            doctor_id: prescription.doctor_id.toString(),
+            medicine: prescription.medicine,
             dose: prescription.dose || '',
             instructions: prescription.instructions || '',
             date: prescription.date,
