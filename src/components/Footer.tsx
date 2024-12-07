@@ -1,7 +1,9 @@
 export default function Footer() {
     return (
         <footer className="footer">
-            &copy; 2024
+            <div className="footer-container">
+                &copy; 2024 rarmed
+            </div>
         </footer>
     );
 }

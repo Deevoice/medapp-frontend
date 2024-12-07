@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { Patient } from '../types/patient';
+import { Patient } from '@/types/patient';
 
 interface PatientFormProps {
     onAdd: (patient: Patient) => void;

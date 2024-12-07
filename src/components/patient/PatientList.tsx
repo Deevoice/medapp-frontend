@@ -1,5 +1,5 @@
 import React from 'react';
-import { Patient } from '../types/patient';
+import { Patient } from '@/types/patient';
 
 interface PatientListProps {
     patients: Patient[];
@@ -7,10 +7,10 @@ interface PatientListProps {
 }
 
 const PatientList: React.FC<PatientListProps> = ({ patients, onDelete }) => (
-    <ul>
+    <ul className='db-list'>
         {patients.map((patient) => (
-            <li key={patient.id}>
-                {patient.name}, {patient.age}, {patient.gender} -
+            <li className='db-elem' key={patient.id}>
+                {patient.name}, {patient.age}, {patient.gender}, {patient.address}, {patient.phoneNumber}
                 <button onClick={() => onDelete(patient.id)}>Удалить</button>
             </li>
         ))}

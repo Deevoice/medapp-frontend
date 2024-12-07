@@ -29,7 +29,7 @@ export const addPatient = async (patient: Patient): Promise<Patient> => {
             age: patient.age.toString(),
             gender: patient.gender,
             address: patient.address,
-            phone_number: patient.phoneNumber,git
+            phone_number: patient.phoneNumber,
         };
 
         const params = new URLSearchParams(stringifiedPatient);
@@ -59,7 +59,7 @@ export const deletePatient = async (patientId: number): Promise<void> => {
     }
 };
 
-// Извлечение сообщения об ошибке
+
 const extractErrorMessage = (error: any): string => {
     if (axios.isAxiosError(error) && error.response && error.response.data) {
         const apiError = error.response.data as ApiError;

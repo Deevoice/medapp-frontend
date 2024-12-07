@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
-import PatientList from '../components/PatientList';
-import PatientForm from '../components/PatientForm';
-import { getPatients, addPatient, deletePatient } from '../utils/api';
-import { Patient } from '../types/patient';
+import PatientList from '@/components/patient/PatientList';
+import PatientForm from '@/components/patient/PatientForm';
+import { getPatients, addPatient, deletePatient } from '@/utils/api';
+import { Patient } from '@/types/patient';
+import Layout from '@/components/Layout';
+import '@/styles/patients.module.css';
 
 const Patients = () => {
     const [patients, setPatients] = useState<Patient[]>([]);
@@ -65,19 +67,23 @@ const Patients = () => {
     }
 
     return (
-        <div>
-            <h1>Пациенты</h1>
-            <button onClick={openAddModal}>Добавить пациента</button>
-            <PatientList patients={patients} onDelete={handleDeletePatient} />
+        <Layout>
+            <div className='patients-main'>
+                <h1 className='global__title'>Пациенты</h1>
+                <div className="table-block">
+                    <button className='add-btn' onClick={openAddModal}>+ Добавить пациента</button>
+                    <PatientList patients={patients} onDelete={handleDeletePatient} />
 
-            <div style={{ display: isAddModalOpen ? 'block' : 'none', position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1000 }}>
-                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px', borderRadius: '5px' }}>
-                    <PatientForm onAdd={handleAddPatient} onClose={closeAddModal} />
+                    <div style={{ display: isAddModalOpen ? 'block' : 'none', position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1000 }}>
+                        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'white', padding: '20px', borderRadius: '5px' }}>
+                            <PatientForm onAdd={handleAddPatient} onClose={closeAddModal} />
+                        </div>
+                    </div>
+                    {isAdding && <p>Добавление пациента...</p>}
+                    {isDeleting && <p>Удаление пациента...</p>}
                 </div>
             </div>
-            {isAdding && <p>Добавление пациента...</p>}
-            {isDeleting && <p>Удаление пациента...</p>}
-        </div>
+        </Layout>
     );
 };
 
