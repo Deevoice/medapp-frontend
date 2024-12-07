@@ -9,8 +9,8 @@ interface AppointmentFormProps {
 const AppointmentForm: React.FC<AppointmentFormProps> = ({ onAdd, onClose }) => {
     const [formData, setFormData] = useState<Appointment>({
         id: 0,
-        patientId: 0,
-        doctorId: 0,
+        patient_id: 0,
+        doctor_id: 0,
         date: '',
         time: '',
     });
@@ -23,7 +23,7 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ onAdd, onClose }) => 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         onAdd(formData);
-        setFormData({ id: 0, patientId: 0, doctorId: 0, date: '', time: '' });
+        setFormData({ id: 0, patient_id: 0, doctor_id: 0, date: '', time: '' });
         onClose();
     };
 
@@ -32,7 +32,7 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ onAdd, onClose }) => 
             <input
                 type="number"
                 name="patientId"
-                value={formData.patientId}
+                value={formData.patient_id}
                 onChange={handleInputChange}
                 placeholder="ID пациента"
                 required
@@ -40,7 +40,7 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ onAdd, onClose }) => 
             <input
                 type="number"
                 name="doctorId"
-                value={formData.doctorId}
+                value={formData.doctor_id}
                 onChange={handleInputChange}
                 placeholder="ID доктора"
                 required

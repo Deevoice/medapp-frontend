@@ -11,7 +11,7 @@ const AppointmentList: React.FC<AppointmentListProps> = ({ appointments }) => {
             <ul className='db-list'>
                 {appointments.map((appointment) => (
                     <li className='db-elem' key={appointment.id}>
-                        Пациент ID: {appointment.patientId} - Доктор ID: {appointment.doctorId} - Дата: {appointment.date} - Время: {appointment.time}
+                        Пациент ID: {appointment.patient_id} - Доктор ID: {appointment.doctor_id} - Дата: {appointment.date} - Время: {appointment.time}
                     </li>
                 ))}
             </ul>
