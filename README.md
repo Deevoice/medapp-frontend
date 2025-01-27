@@ -7,6 +7,7 @@ Main page
 
 
 Doctors
-![image](https://github.com/user-attachments/assets/ad9add38-40b2-4ff3-bc4d-c530aa2af769)
+
+![xZxczv81](https://github.com/user-attachments/assets/a1526991-de7a-462c-ba6e-e6233fc46485)
 
 
